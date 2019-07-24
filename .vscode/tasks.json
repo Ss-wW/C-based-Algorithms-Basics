@@ -1,0 +1,22 @@
+{
+    "version": "0.1.0",
+    "command": "g++",
+    "args": ["-g","${file}","-o","${fileBasenameNoExtension}.exe"], // 编译命令参数
+    "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": ["relative", "${workspaceRoot}"],
+        "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+        }
+    }
+}
+--------------------- 
+作者：bat67 
+来源：CSDN 
+原文：https://blog.csdn.net/bat67/article/details/81268581 
+版权声明：本文为博主原创文章，转载请附上博文链接！

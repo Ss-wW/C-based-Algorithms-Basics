@@ -46,7 +46,7 @@ PNode getIntersectNode(PNode head1, PNode head2)
     if (loop1 == NULL && loop2 == NULL)
         return noloop(head1, head2);
     if (loop1 != NULL && loop2 != NULL)
-        return bothloop(head1, loop1, head2, loop2);
+        return bothloop(head1,loop1, head2, loop2);
     // if one of head1 and head2 is noloop, and the other one is loop,
     // then there must has no intersectnNode for the two single direction linklist.
     return NULL;
@@ -139,10 +139,9 @@ PNode bothloop(PNode head1, PNode loop1, PNode head2, PNode loop2)
             cur2 = cur2->next;
         }
         cur1 = n > 0 ? head1 : head2;
-        cur2 = cur1 == head1 ? head2 : head1;
+        cur2 = cur1 == head1 ? head2 : head1; 
         n = fabs(n);
-        while (n != 0)
-        {
+        while (n != 0){
             n--;
             cur1 = cur1->next;
         }
@@ -152,16 +151,12 @@ PNode bothloop(PNode head1, PNode loop1, PNode head2, PNode loop2)
             cur2 = cur2->next;
         }
         return cur1;
-    }
-    else
-    {
+    } else {
         cur1 = loop1->next;
-        while (cur1 != loop1)
-        {
-            if (cur1 == loop2)
-            {
-                return loop1;
-            }
+        while (cur1 != loop1){
+            if (cur1 == loop2){
+                return loop1;  
+            } 
             cur1 = cur1->next;
         }
         return NULL;
@@ -177,11 +172,12 @@ int main()
     head1->next->next->next->next = newNode(5);
     head1->next->next->next->next->next = newNode(6);
     head1->next->next->next->next->next->next = newNode(7);
+    
     PNode head2 = newNode(0);
     head2->next = newNode(9);
     head2->next->next = newNode(8);
     head2->next->next->next = head1->next->next->next->next->next;
-    printf("%d\n", getIntersectNode(head1, head2)->value);
+    printf("%d\n",getIntersectNode(head1,head2)->value);
 
     head1 = newNode(1);
     head1->next = newNode(2);
@@ -196,13 +192,13 @@ int main()
     head2->next = newNode(9);
     head2->next->next = newNode(8);
     head2->next->next->next = head1->next;
-    printf("%d\n", getIntersectNode(head1, head2)->value);
+    printf("%d\n",getIntersectNode(head1,head2)->value);
 
     head2 = newNode(0);
     head2->next = newNode(9);
     head2->next->next = newNode(8);
     head2->next->next->next = head1->next->next->next->next->next;
-    printf("%d\n", getIntersectNode(head1, head2)->value);
+    printf("%d\n",getIntersectNode(head1,head2)->value);
 
     system("pause");
     return 0;
